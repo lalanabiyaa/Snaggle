@@ -20,7 +20,7 @@ const Login = () => {
    const recoPassword = async (event) => {
     event.preventDefault();
     try {
-      await axios.patch(`http://localhost:5000/forgetPassword`, {
+      await axios.patch(`http://https://snaggle-production.up.railway.app/forgetPassword`, {
         email,
         newPassword,
         confPassword,

@@ -16,7 +16,7 @@ const FormEditUser = () => {
       const getUsersById = async () => {
          try {
             const response = await axios.get(
-               `http://localhost:5000/users/${id}`
+               `http://https://snaggle-production.up.railway.app/users/${id}`
             );
             setName(response.data.name);
             setEmail(response.data.email);
@@ -31,7 +31,7 @@ const FormEditUser = () => {
    const updateUser = async event => {
       event.preventDefault();
       try {
-         await axios.patch(`http://localhost:5000/users/${id}`, {
+         await axios.patch(`http://https://snaggle-production.up.railway.app/users/${id}`, {
             name: name,
             email: email,
             password: password,

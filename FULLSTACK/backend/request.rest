@@ -1,5 +1,5 @@
 // create User
-POST http://localhost:5000/users
+POST http://https://snaggle-production.up.railway.app/users
 Content-Type: application/json
 
 {
@@ -12,16 +12,16 @@ Content-Type: application/json
 
 ###
 // get All User
-GET http://localhost:5000/users
+GET http://https://snaggle-production.up.railway.app/users
 
 
 ###
 // get Single User
-GET http://localhost:5000/users/dae71a8b-9cd8-485c-9221-56b2783acdf6
+GET http://https://snaggle-production.up.railway.app/users/dae71a8b-9cd8-485c-9221-56b2783acdf6
 
 ###
 // Update User
-PATCH  http://localhost:5000/users/dae71a8b-9cd8-485c-9221-56b2783acdf6
+PATCH  http://https://snaggle-production.up.railway.app/users/dae71a8b-9cd8-485c-9221-56b2783acdf6
 Content-Type: application/json
 
 {
@@ -33,11 +33,11 @@ Content-Type: application/json
 
 ###
 // delete User
-DELETE   http://localhost:5000/users/ba22b6e9-0643-40ac-affd-cc6877916152
+DELETE   http://https://snaggle-production.up.railway.app/users/ba22b6e9-0643-40ac-affd-cc6877916152
 
 ###
 // login User
-POST http://localhost:5000/login
+POST http://https://snaggle-production.up.railway.app/login
 Content-Type: application/json
 
 {
@@ -46,14 +46,14 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:5000/me
+GET http://https://snaggle-production.up.railway.app/me
 
 ###
-DELETE  http://localhost:5000/logout
+DELETE  http://https://snaggle-production.up.railway.app/logout
 
 ###
 // login User
-POST http://localhost:5000/login
+POST http://https://snaggle-production.up.railway.app/login
 Content-Type: application/json
 
 {
@@ -63,15 +63,15 @@ Content-Type: application/json
 
 ###
 // get All Category
-GET http://localhost:5000/category
+GET http://https://snaggle-production.up.railway.app/category
 
 ###
 // get Single Category
-GET http://localhost:5000/category/00c1f686-2eca-42d9-9f86-482b38df7502
+GET http://https://snaggle-production.up.railway.app/category/00c1f686-2eca-42d9-9f86-482b38df7502
 
 ###
 // post Data Category
-POST http://localhost:5000/category
+POST http://https://snaggle-production.up.railway.app/category
 Content-Type: application/json
 
 {
@@ -80,7 +80,7 @@ Content-Type: application/json
 
 ###
 // post Data Category
-PATCH  http://localhost:5000/category/f24ea77e-a547-418c-b5e7-e0322cdefbf7
+PATCH  http://https://snaggle-production.up.railway.app/category/f24ea77e-a547-418c-b5e7-e0322cdefbf7
 Content-Type: application/json
 
 {
@@ -89,11 +89,11 @@ Content-Type: application/json
 
 ###
 // Delete Data Category
-DELETE   http://localhost:5000/category/f24ea77e-a547-418c-b5e7-e0322cdefbf7
+DELETE   http://https://snaggle-production.up.railway.app/category/f24ea77e-a547-418c-b5e7-e0322cdefbf7
 
 ###
 // post Data Category
-POST http://localhost:5000/product
+POST http://https://snaggle-production.up.railway.app/product
 Content-Type: application/json
 
 {
@@ -106,7 +106,7 @@ Content-Type: application/json
 
 ###
 // post Data Category
-PATCH http://localhost:5000/recoveryPassword
+PATCH http://https://snaggle-production.up.railway.app/recoveryPassword
 Content-Type: application/json
 
 {

@@ -24,7 +24,7 @@ const CustomerProducts = () => {
    }, [initialCategory]);
 
    const getProducts = async () => {
-      const response = await axios.get('http://localhost:5000/product');
+      const response = await axios.get('http://https://snaggle-production.up.railway.app/product');
       setProducts(response.data);
    };
    useEffect(() => {
@@ -37,7 +37,7 @@ const CustomerProducts = () => {
    }, [location.search]);
 
    const getCategories = async () => {
-      const response = await axios.get('http://localhost:5000/category');
+      const response = await axios.get('http://https://snaggle-production.up.railway.app/category');
       setCategories(response.data);
    };
 
@@ -148,7 +148,7 @@ const CustomerProducts = () => {
                         style={productCardStyle}
                      >
                         <img
-                           src={`http://localhost:5000/images/${product.picture}`}
+                           src={`http://https://snaggle-production.up.railway.app/images/${product.picture}`}
                            alt={product.name}
                            style={productImageStyle}
                         />

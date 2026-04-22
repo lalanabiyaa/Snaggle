@@ -14,13 +14,13 @@ const Productlist = () => {
    }, []);
 
    const getProducts = async () => {
-      const response = await axios.get('http://localhost:5000/product');
+      const response = await axios.get('http://https://snaggle-production.up.railway.app/product');
       setProducts(response.data);
       setallProducts(response.data);
    };
 
    // const deleteProduct = async productId => {
-   //    await axios.delete(`http://localhost:5000/product/${productId}`);
+   //    await axios.delete(`http://https://snaggle-production.up.railway.app/product/${productId}`);
    //    getProducts();
    // };
 
