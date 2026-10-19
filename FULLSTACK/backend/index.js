@@ -12,6 +12,10 @@ import fileUpload from 'express-fileupload';
 dotenv.config();
 
 const app = express();
+const isProduction = process.env.NODE_ENV === 'production' || !!process.env.RAILWAY_ENVIRONMENT;
+const allowedOrigins = ['http://localhost:3000', process.env.FRONTEND_URL].filter(Boolean);
+
+app.set('trust proxy', 1);
 
 const sessionStore = sequelizeStore(session.Store);
 
@@ -28,7 +32,11 @@ app.use(
       resave: false,
       saveUninitialized: true,
       store: store,
-      cookie: { secure: 'auto' },
+      proxy: true,
+      cookie: {
+         secure: isProduction,
+         sameSite: isProduction ? 'none' : 'lax',
+      },
    })
 );
 
@@ -37,7 +45,12 @@ app.use(express.static('public'));
 app.use(
    cors({
       credentials: true,
-      origin: 'http://localhost:3000',
+      origin: (origin, callback) => {
+         if (!origin || allowedOrigins.includes(origin) || /^https:\/\/[a-z0-9-]+\.vercel\.app$/.test(origin)) {
+            return callback(null, true);
+         }
+         callback(new Error('Not allowed by CORS'));
+      },
    })
 );
 app.use(express.json());
@@ -48,4 +61,4 @@ app.use(categoryRoute);
 app.use(authRoute);
 
 // store.sync();
-app.listen(process.env.APP_PORT, () => console.log('Running App'));
+app.listen(process.env.PORT || process.env.APP_PORT || 5000, () => console.log('Running App'));

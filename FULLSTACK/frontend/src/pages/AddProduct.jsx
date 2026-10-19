@@ -20,7 +20,7 @@ const AddProduct = () => {
     if (user && user.role !== "admin" && user.role !== "staff") {
       navigate("/dashboard");
     }
-  }, [isError, navigate]);
+  }, [isError, user, navigate]);
   return (
     <Layout>
       <FormAddProduct />

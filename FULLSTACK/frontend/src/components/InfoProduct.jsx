@@ -11,7 +11,7 @@ const ProductDetail = () => {
         const fetchProduct = async () => {
             try {
                 console.log('Fetching product with ID:', id);
-                const response = await axios.get(`http://localhost:5000/product/${id}`);
+                const response = await axios.get(`https://snaggle-production.up.railway.app/product/${id}`);
                 console.log('Response data:', response.data);
                 setProduct(response.data);
             } catch (error) {
@@ -62,7 +62,7 @@ const ProductDetail = () => {
             {/* Image Section */}
             <div style={styles.item}>
                 <img 
-                    src={`http://localhost:5000/images/${product.picture}`} 
+                    src={`https://snaggle-production.up.railway.app/images/${product.picture}`} 
                     alt={product.name} 
                     style={styles.image} 
                 />

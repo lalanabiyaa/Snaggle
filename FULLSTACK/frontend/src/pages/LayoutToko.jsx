@@ -23,15 +23,15 @@ const LayoutToko = ({ children }) => {
                 <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', textAlign: 'center', marginBottom: '1rem' }}>Kategori Pakaian</h2>
                 <div className="columns is-multiline is-centered">
                    <div className="column is-4" style={{ textAlign: 'center' }}>
-                        <img src={anak} style={{ width: '100%', borderRadius: '8px' }} />
+                        <img src={anak} alt="Kategori Anak" style={{ width: '100%', borderRadius: '8px' }} />
                         <p style={{ marginTop: '0.5rem', fontWeight: 'bold', color: 'black' }}>ANAK</p>
                    </div>
                    <div className="column is-4" style={{ textAlign: 'center' }}>
-                        <img src={wanita} style={{ width: '90%', borderRadius: '8px' }} />
+                        <img src={wanita} alt="Kategori Wanita" style={{ width: '90%', borderRadius: '8px' }} />
                         <p style={{ marginTop: '0.5rem', fontWeight: 'bold', color: 'black' }}>WANITA</p>
                    </div>
                    <div className="column is-4" style={{ textAlign: 'center' }}>
-                        <img src={pria} style={{ width: '90%', borderRadius: '8px' }} />
+                        <img src={pria} alt="Kategori Pria" style={{ width: '90%', borderRadius: '8px' }} />
                         <p style={{ marginTop: '0.5rem', fontWeight: 'bold', color: 'black' }}>PRIA</p>
                    </div>
                 </div>
