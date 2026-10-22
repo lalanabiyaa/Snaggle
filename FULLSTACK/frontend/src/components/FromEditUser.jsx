@@ -57,7 +57,7 @@ const FormEditUser = () => {
       >
          <h1
             style={{
-               fontSize: '2.5rem',
+               fontSize: 'clamp(1.8rem, 5vw, 2.5rem)',
                fontWeight: 'bold',
                marginBottom: '1rem',
                textAlign: 'left',
@@ -67,7 +67,7 @@ const FormEditUser = () => {
          </h1>
          <h2
             style={{
-               fontSize: '2.0rem',
+               fontSize: 'clamp(1.4rem, 4vw, 2rem)',
                fontWeight: 'bold',
                marginBottom: '0.5rem',
                textAlign: 'left',
@@ -183,7 +183,8 @@ const labelStyle = {
 };
 
 const tableStyle = {
-   width: '70%',
+   width: '100%',
+   maxWidth: '700px',
    margin: '0 auto',
    borderCollapse: 'collapse',
    border: '2px solid black',
@@ -207,7 +208,7 @@ const buttonStyle = {
 
 const formContainerStyle = {
    borderRadius: '15px',
-   padding: '2rem',
+   padding: 'clamp(0.5rem, 3vw, 2rem)',
    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
    backgroundColor: 'transparent',
    marginTop: '0.5rem',

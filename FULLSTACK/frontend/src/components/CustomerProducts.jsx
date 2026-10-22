@@ -72,24 +72,23 @@ const CustomerProducts = () => {
           <nav style={navStyle}>
             <NavLink
               to="/customer"
-              style={navLinkStyle}
+              end
+              style={activeNavLinkStyle}
               className="navbar-item"
-              activeStyle={{ color: "#416B39" }}
             >
               Home
             </NavLink>
 
             <NavLink
               to="/customer/product"
-              style={navLinkStyle}
+              style={activeNavLinkStyle}
               className="navbar-item"
-              activeStyle={{ color: "#416B39" }}
             >
               Products
             </NavLink>
           </nav>
 
-          <h1 style={logoStyle}>Snaggle</h1>
+          <h1 className="cust-logo" style={logoStyle}>Snaggle</h1>
 
           <div style={searchBarStyle}>
             <input
@@ -105,7 +104,7 @@ const CustomerProducts = () => {
           </div>
         </header>
 
-        <aside style={filterStyle}>
+        <aside className="cust-filter" style={filterStyle}>
           <h2 style={filterTitleStyle}>Harga</h2>
 
           <button style={filterButtonStyle} onClick={handleSortHighToLow}>
@@ -133,7 +132,7 @@ const CustomerProducts = () => {
           </select>
         </aside>
 
-        <main style={productGridStyle}>
+        <main className="cust-grid" style={productGridStyle}>
           {products
             .filter(
               (product) =>
@@ -194,6 +193,8 @@ const headerStyle = {
   marginBottom: "50px",
   gridColumn: "span 2",
   display: "flex",
+  flexWrap: "wrap",
+  gap: "10px",
   justifyContent: "space-between",
   alignItems: "center",
   padding: "10px 20px",
@@ -205,13 +206,10 @@ const headerStyle = {
 };
 
 const logoStyle = {
-  fontSize: "2.5rem",
+  fontSize: "clamp(1.8rem, 5vw, 2.5rem)",
   fontWeight: "400",
   fontStyle: "bold",
   color: "#000",
-  position: "absolute",
-  left: "50%",
-  transform: "translateX(-50%)",
   fontFamily: '"Jersey 25", serif',
 };
 
@@ -226,10 +224,16 @@ const navLinkStyle = {
   backgroundColor: "transparent",
 };
 
+const activeNavLinkStyle = ({ isActive }) => ({
+  ...navLinkStyle,
+  color: isActive ? "#416B39" : undefined,
+});
+
 const searchBarStyle = {
   display: "flex",
   borderBottom: "1px solid #ccc",
   width: "250px",
+  maxWidth: "100%",
   position: "relative",
 };
 
@@ -245,7 +249,8 @@ const searchInputStyle = {
   padding: "5px 10px",
   border: "none",
   outline: "none",
-  width: "300px",
+  width: "100%",
+  minWidth: 0,
   fontSize: "1rem",
   backgroundColor: "transparent",
 };
@@ -264,11 +269,6 @@ const filterStyle = {
   display: "flex",
   flexDirection: "column",
   alignItems: "flex-start",
-  position: "fixed",
-  zIndex: 10,
-  marginTop: "50px",
-  top: "110px",
-  height: "calc(100vh - 100px)",
 };
 
 const emptyBoxStyle = {
@@ -306,7 +306,6 @@ const productGridStyle = {
   gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
   gap: "20px",
   padding: "20px",
-  marginLeft: "220px",
   alignItems: "start",
 };
 

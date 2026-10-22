@@ -55,7 +55,7 @@ const CategoryList = () => {
       >
          <h1
             style={{
-               fontSize: '2.5rem',
+               fontSize: 'clamp(1.8rem, 5vw, 2.5rem)',
                fontWeight: 'bold',
                marginBottom: '1rem',
                textAlign: 'left',
@@ -65,7 +65,7 @@ const CategoryList = () => {
          </h1>
          <h2
             style={{
-               fontSize: '2.0rem',
+               fontSize: 'clamp(1.4rem, 4vw, 2rem)',
                fontWeight: 'bold',
                marginBottom: '2rem',
                textAlign: 'left',
@@ -73,7 +73,7 @@ const CategoryList = () => {
          >
             List Of Categories
          </h2>
-         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+         <div style={toolbarStyle}>
             <Link
                to={'/category/add'}
                className="button is-info mb-2"
@@ -96,7 +96,8 @@ const CategoryList = () => {
                </div>
             </div>
          </div>
-         <table className="table is-striped is-fullwidth" style={tableStyle}>
+         <div className="table-container" style={{ maxWidth: '700px', margin: '0 auto' }}>
+            <table className="table is-striped is-fullwidth" style={tableStyle}>
             <thead>
                <tr>
                   <th style={tableHeaderStyle}>No</th>
@@ -121,18 +122,28 @@ const CategoryList = () => {
                   </tr>
                ))}
             </tbody>
-         </table>
+            </table>
+         </div>
       </div>
    );
+};
+
+const toolbarStyle = {
+   display: 'flex',
+   flexWrap: 'wrap',
+   justifyContent: 'space-between',
+   alignItems: 'center',
+   gap: '1rem',
+   maxWidth: '700px',
+   margin: '0 auto',
 };
 
 const searchContainerStyle = {
    display: 'flex',
    alignItems: 'center',
    gap: '0.5rem',
-   width: '50%',
-   marginLeft: '3rem',
-   marginRight: '13rem',
+   flex: '1 1 280px',
+   maxWidth: '460px',
 };
 
 const inputWrapperStyle = {
@@ -146,7 +157,8 @@ const inputStyle = {
    padding: '0.8rem 1.5rem',
    border: '1px solid #ccc',
    borderRadius: '2rem',
-   width: '90%',
+   width: '100%',
+   paddingRight: '8.5rem',
    backgroundColor: '#e2e8f0',
    fontWeight: 'bold',
    fontSize: '1.2rem',
@@ -163,14 +175,14 @@ const buttonInsideInputStyle = {
    fontWeight: 'bold',
    fontFamily: "'Josefin Sans', sans-serif",
    position: 'absolute',
-   right: '6rem',
+   right: '0.4rem',
    top: '50%',
    transform: 'translateY(-50%)',
    cursor: 'pointer',
 };
 
 const tableStyle = {
-   width: '50%',
+   width: '100%',
    margin: '0 auto',
    borderCollapse: 'collapse',
    marginBottom: '1.5rem',
@@ -179,14 +191,14 @@ const tableStyle = {
 };
 
 const tableHeaderStyle = {
-   fontSize: '1.8rem',
+   fontSize: 'clamp(1.1rem, 2.5vw, 1.8rem)',
    color: '#000',
    fontStyle: 'bold',
    padding: '1rem',
 };
 
 const rowStyle = {
-   fontSize: '1.5rem',
+   fontSize: 'clamp(1rem, 2vw, 1.5rem)',
    fontWeight: 'bold',
    color: '#000',
    borderBottom: '1px solid black',
@@ -202,9 +214,6 @@ const buttonStyle = {
    fontSize: '1.2rem',
    fontWeight: 'bold',
    display: 'block',
-   marginTop: '1.5rem',
-   marginLeft: '25rem',
-   marginRight: '2rem',
    width: 'fit-content',
 };
 

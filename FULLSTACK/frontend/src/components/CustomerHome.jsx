@@ -50,7 +50,7 @@ const CustomerHome = () => {
       >
         <img
           src={bg}
-          style={{ width: "100%", height: "600px" }}
+          style={{ width: "100%", height: "clamp(260px, 50vw, 600px)", objectFit: "cover" }}
           alt="Background"
         />
         <div
@@ -59,8 +59,9 @@ const CustomerHome = () => {
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            fontSize: "4rem",
-            padding: "2rem",
+            fontSize: "clamp(1.8rem, 7vw, 4rem)",
+            padding: "clamp(1rem, 3vw, 2rem)",
+            width: "100%",
             fontWeight: "600",
             fontStyle: "bold",
             color: "#FFF",
@@ -157,7 +158,7 @@ const CustomerHome = () => {
       <footer
         style={{
           textAlign: "center",
-          fontSize: "2.5rem",
+          fontSize: "clamp(1.8rem, 5vw, 2.5rem)",
           padding: "2rem",
           fontWeight: "400",
           fontStyle: "bold",
@@ -182,7 +183,8 @@ const searchStyle = {
   backgroundColor: "rgba(112, 110, 110, 0.14)",
   boxShadow: "5px 5px rgba(0, 0, 0, 0.2)",
   borderRadius: "1rem",
-  width: "50%",
+  width: "90%",
+  maxWidth: "700px",
   marginLeft: "auto",
   marginRight: "auto",
 };
@@ -196,10 +198,11 @@ const searchBarStyle = {
   backgroundColor: "rgba(112, 110, 110, 0.14)",
   fontFamily: "Josefin Sans, sans-serif",
   marginRight: "1rem",
+  minWidth: 0,
 };
 
 const searchButtonStyle = {
-  padding: "0.8rem 2rem",
+  padding: "0.8rem clamp(1rem, 3vw, 2rem)",
   borderRadius: "5px",
   backgroundColor: "#416B39",
   color: "white",
@@ -210,23 +213,23 @@ const searchButtonStyle = {
 };
 
 const categoriesStyle = {
-  display: "flex",
-  justifyContent: "space-evenly",
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+  gap: "1rem",
   marginTop: "2rem",
+  padding: "0 1rem",
 };
 
 const categoryCardStyle = {
   textAlign: "center",
   padding: "1rem",
   borderRadius: "10px",
-  flex: "1",
-  margin: "0 1rem",
 };
 
 const aboutStyle = {
   textAlign: "center",
   marginTop: "3rem",
-  padding: "2.2rem",
+  padding: "clamp(1.2rem, 4vw, 2.2rem)",
   backgroundColor: "#2D572C",
   color: "white",
   fontSize: "1.2rem",

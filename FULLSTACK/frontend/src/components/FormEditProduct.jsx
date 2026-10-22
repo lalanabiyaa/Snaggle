@@ -100,13 +100,14 @@ const FormEditProduct = () => {
                justifyContent: 'flex-start',
                alignItems: 'flex-start',
                flexDirection: 'column',
-               width: '80%',
+               width: '100%',
+               maxWidth: '900px',
                marginBottom: '1.5rem',
             }}
          >
             <h1
                style={{
-                  fontSize: '2.5rem',
+                  fontSize: 'clamp(1.8rem, 5vw, 2.5rem)',
                   fontWeight: 'bold',
                   marginBottom: '0.5rem',
                }}
@@ -115,7 +116,7 @@ const FormEditProduct = () => {
             </h1>
             <h2
                style={{
-                  fontSize: '2rem',
+                  fontSize: 'clamp(1.4rem, 4vw, 2rem)',
                   fontWeight: 'bold',
                   marginBottom: '1.5rem',
                }}
@@ -287,7 +288,7 @@ const FormEditProduct = () => {
                      </div>
                      <div
             style={{
-               width: '130%',
+               width: '100%',
                display: 'flex',
                justifyContent: 'flex-start',
             }}
@@ -314,7 +315,8 @@ const formStyle = {
    borderRadius: '4px',
    border: '2px solid black',
    padding: '1rem',
-   width: '55%',
+   width: '100%',
+   maxWidth: '900px',
 };
 
 const rowStyle = {
@@ -341,7 +343,7 @@ const buttonStyle = {
    fontWeight: 'bold',
    display: 'block',
    marginTop: '2rem',
-   width: '7%',
+   width: 'fit-content',
 };
 
 const inputStyle = {

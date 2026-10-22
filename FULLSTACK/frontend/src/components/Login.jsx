@@ -85,14 +85,15 @@ const containerStyle = {
    display: 'flex',
    justifyContent: 'center',
    alignItems: 'center',
-   height: '100vh',
+   minHeight: '100vh',
+   padding: '1rem',
    fontFamily: "'Jersey 25', sans-serif",
 };
 
 const formContainerStyle = {
    width: '100%',
    maxWidth: '420px',
-   padding: '2rem',
+   padding: 'clamp(1.25rem, 5vw, 2rem)',
    backgroundColor: 'white',
    borderRadius: '1rem',
    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
@@ -107,7 +108,7 @@ const formStyle = {
 const titleStyle = {
    textAlign: 'center',
    fontFamily: "'Jersey 25', sans-serif",
-   fontSize: '2.7rem',
+   fontSize: 'clamp(2rem, 7vw, 2.7rem)',
    marginBottom: '1rem',
    fontWeight: 'bold',
 };
@@ -155,6 +156,7 @@ const buttonStyle = {
    fontWeight: 'bold',
    fontSize: '1.3rem',
    width: '35%',
+   minWidth: '120px',
    display: 'inline-block',
 };
 

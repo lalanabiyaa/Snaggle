@@ -38,8 +38,8 @@ const ProductDetail = () => {
         },
         item: {
             flex: '1',
-            margin: '0 30px',
-            minWidth: '300px', 
+            margin: '0 clamp(0px, 2vw, 30px) 1.5rem',
+            minWidth: 'min(300px, 100%)', 
         },
         image: {
             width: '100%',

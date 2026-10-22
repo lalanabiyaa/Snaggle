@@ -16,6 +16,15 @@ const Navbar = () => {
   const [newPassword, setNewPassword] = useState('');
   const [confPassword, setConfPassword] = useState('');
   const [msg, setMsg] = useState('');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const navLinkStyle = ({ isActive }) => ({
+    transition: 'color 0.3s ease',
+    color: isActive ? '#416B39' : undefined,
+    fontWeight: isActive ? 'bold' : undefined,
+  });
+
+  const closeMenu = () => setIsMenuOpen(false);
 
   const logout = () => {
     dispatch(logOut());
@@ -67,96 +76,88 @@ const Navbar = () => {
       }}
     >
       <div className="navbar-brand">
-        <NavLink
-          to="/dashboard"
-          className="navbar-item"
-          style={{
-            transition: 'color 0.3s ease',
-          }}
-          activeStyle={{ color: '#416B39' }}
-        >
-          Dashboard
-        </NavLink>
-        <NavLink
-          to="/category"
-          className="navbar-item"
-          style={{
-            transition: 'color 0.3s ease',
-          }}
-          activeStyle={{ color: '#416B39' }}
-        >
-          Category
-        </NavLink>
-        <NavLink
-          to="/products"
-          className="navbar-item"
-          style={{
-            transition: 'color 0.3s ease',
-          }}
-          activeStyle={{ color: '#416B39' }}
-        >
-          Product
-        </NavLink>
-        {user && user.role === 'admin' && (
-          <NavLink
-            to="/users"
-            className="navbar-item"
-            style={{
-              transition: 'color 0.3s ease',
-            }}
-            activeStyle={{ color: '#416B39' }}
-          >
-            Users
-          </NavLink>
-        )}
-      </div>
-      <div
-        className="navbar-item"
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          flex: 1,
-        }}
-      >
-        <span
-          style={{
-            fontFamily: '"Jersey 25", serif',
-            fontSize: '2.5rem',
-            fontWeight: '400',
-            fontStyle: 'bold',
-            color: '#000',
-          }}
-        >
+        <span className="navbar-item is-hidden-desktop" style={brandStyle}>
           Snaggle
         </span>
+        <button
+          type="button"
+          className={`navbar-burger ${isMenuOpen ? 'is-active' : ''}`}
+          aria-label="menu"
+          aria-expanded={isMenuOpen}
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          style={{ background: 'none', border: 'none', color: '#000' }}
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </button>
       </div>
 
-      <div className="navbar-end">
-        <div className="navbar-item">
-          <button
-            className="button is-danger"
-            onClick={() => setShowModal(true)}
-          >
-            Change Password
-          </button>
-          <button
-            onClick={logout}
-            className="button"
-            style={{
-              backgroundColor: '#416B39',
-              color: 'white',
-              display: 'flex',
-              alignItems: 'center',
-            }}
-          >
-            <IoLogOut
-              style={{
-                marginRight: '8px',
-                fontSize: '20px',
-              }}
-            />
-            LogOut
-          </button>
+      <div
+        className={`navbar-menu ${isMenuOpen ? 'is-active' : ''}`}
+        style={{ backgroundColor: '#F1C9F9' }}
+      >
+        <div className="navbar-start">
+          <NavLink to="/dashboard" className="navbar-item" style={navLinkStyle} onClick={closeMenu}>
+            Dashboard
+          </NavLink>
+          <NavLink to="/category" className="navbar-item" style={navLinkStyle} onClick={closeMenu}>
+            Category
+          </NavLink>
+          <NavLink to="/products" className="navbar-item" style={navLinkStyle} onClick={closeMenu}>
+            Product
+          </NavLink>
+          {user && user.role === 'admin' && (
+            <NavLink to="/users" className="navbar-item" style={navLinkStyle} onClick={closeMenu}>
+              Users
+            </NavLink>
+          )}
+        </div>
+
+        <div
+          className="navbar-item is-hidden-touch"
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            flex: 1,
+          }}
+        >
+          <span style={brandStyle}>Snaggle</span>
+        </div>
+
+        <div className="navbar-end">
+          <div className="navbar-item">
+            <div className="buttons">
+              <button
+                className="button is-danger"
+                onClick={() => {
+                  setShowModal(true);
+                  closeMenu();
+                }}
+              >
+                Change Password
+              </button>
+              <button
+                onClick={logout}
+                className="button"
+                style={{
+                  backgroundColor: '#416B39',
+                  color: 'white',
+                  display: 'flex',
+                  alignItems: 'center',
+                }}
+              >
+                <IoLogOut
+                  style={{
+                    marginRight: '8px',
+                    fontSize: '20px',
+                  }}
+                />
+                LogOut
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -236,6 +237,13 @@ const Navbar = () => {
       )}
     </nav>
   );
+};
+
+const brandStyle = {
+  fontFamily: '"Jersey 25", serif',
+  fontSize: 'clamp(1.8rem, 5vw, 2.5rem)',
+  fontWeight: '400',
+  color: '#000',
 };
 
 export default Navbar;

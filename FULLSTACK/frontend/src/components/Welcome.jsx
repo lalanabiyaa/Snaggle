@@ -43,7 +43,7 @@ const Welcome = () => {
       >
          <h1
             style={{
-               fontSize: '2.5rem',
+               fontSize: 'clamp(1.8rem, 5vw, 2.5rem)',
                fontWeight: 'bold',
                marginBottom: '1rem',
                textAlign: 'left', // Teks Dashboard rata kiri
@@ -53,7 +53,7 @@ const Welcome = () => {
          </h1>
          <h2
             style={{
-               fontSize: '2.0rem', // Memperbesar font Welcome Back
+               fontSize: 'clamp(1.4rem, 4vw, 2rem)', // Memperbesar font Welcome Back
                fontWeight: 'bold',
                marginBottom: '2rem',
                textAlign: 'left',
@@ -65,26 +65,15 @@ const Welcome = () => {
          {/* Bagian Category dan Produk */}
          <div
             style={{
-               display: 'flex',
-               justifyContent: 'flex-start',
-               alignItems: 'flex-start',
+               display: 'grid',
+               gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))',
                gap: '1rem', // Jarak antar kotak lebih rapat
                marginTop: '2rem',
+               maxWidth: '720px',
             }}
          >
             {/* Kotak Category */}
-            <div
-               style={{
-                  width: '15%',
-                  height: '130px',
-                  border: '2px solid black',
-                  borderRadius: '20px', // Sudut melengkung besar
-                  padding: '0.6rem',
-                  backgroundColor: 'white',
-                  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-                  textAlign: 'left',
-               }}
-            >
+            <div style={cardStyle}>
                <h2 style={{ fontSize: '1.8rem', fontWeight: 'bold' }}>
                   Category {/* Ukuran font lebih besar */}
                </h2>
@@ -114,18 +103,7 @@ const Welcome = () => {
             </div>
 
             {/* Kotak Produk */}
-            <div
-               style={{
-                  width: '15%',
-                  height: '130px',
-                  border: '2px solid black',
-                  borderRadius: '20px', // Sudut melengkung besar
-                  padding: '0.6rem',
-                  backgroundColor: 'white',
-                  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-                  textAlign: 'left',
-               }}
-            >
+            <div style={cardStyle}>
                <h2 style={{ fontSize: '1.8rem', fontWeight: 'bold' }}>
                   Produk {/* Ukuran font lebih besar */}
                </h2>
@@ -155,6 +133,19 @@ const Welcome = () => {
          </div>
       </div>
    );
+};
+
+const cardStyle = {
+   minHeight: '130px',
+   border: '2px solid black',
+   borderRadius: '20px',
+   padding: '1rem 1.2rem',
+   backgroundColor: 'white',
+   boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+   textAlign: 'left',
+   display: 'flex',
+   flexDirection: 'column',
+   justifyContent: 'space-between',
 };
 
 export default Welcome;

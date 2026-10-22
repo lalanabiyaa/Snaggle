@@ -31,7 +31,7 @@ const DetailProduct = () => {
          className="columns is-vcentered is-centered mt-6"
          style={{ margin: 'auto', width: '90%' }}
       >
-         <div className="column is-one-third" style={{ marginRight: '50px' }}>
+         <div className="column is-one-third">
             <figure
                className="image is-square"
                style={{ display: 'flex', justifyContent: 'center' }}
@@ -39,7 +39,7 @@ const DetailProduct = () => {
                <img
                   src={product.url || ''}
                   alt={product.name}
-                  style={{ maxWidth: '350px', height: 'auto' }} // Adjust size for better layout
+                  style={{ maxWidth: 'min(350px, 100%)', height: 'auto' }} // Adjust size for better layout
                />
             </figure>
          </div>
@@ -50,7 +50,7 @@ const DetailProduct = () => {
             <h1
                style={{
                   fontFamily: "'Josefin Sans', sans-serif",
-                  fontSize: '34px',
+                  fontSize: 'clamp(24px, 5vw, 34px)',
                   fontWeight: 'bold',
                   textAlign: 'left',
                   color: 'black',
@@ -63,7 +63,7 @@ const DetailProduct = () => {
             <h2
                style={{
                   fontFamily: "'Josefin Sans', sans-serif",
-                  fontSize: '30px',
+                  fontSize: 'clamp(22px, 4.5vw, 30px)',
                   fontWeight: 'normal',
                   textAlign: 'left',
                   color: 'black',

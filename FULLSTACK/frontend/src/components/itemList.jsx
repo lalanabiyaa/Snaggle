@@ -152,10 +152,11 @@ const ProductList = () => {
 const styles = {
   container: {
     display: "flex",
+    flexWrap: "wrap",
     fontFamily: "Arial, sans-serif",
   },
   sidebar: {
-    width: "20%",
+    flex: "1 1 200px",
     padding: "20px",
     borderRight: "1px solid #ddd",
   },
@@ -178,7 +179,8 @@ const styles = {
     textDecoration: "none",
   },
   grid: {
-    width: "80%",
+    flex: "999 1 0",
+    minWidth: "60%",
     padding: "20px",
     display: "grid",
     gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",

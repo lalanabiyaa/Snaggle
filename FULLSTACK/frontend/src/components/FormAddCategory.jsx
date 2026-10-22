@@ -33,7 +33,7 @@ const FormAddCategory = () => {
       >
          <h1
             style={{
-               fontSize: '2.5rem',
+               fontSize: 'clamp(1.8rem, 5vw, 2.5rem)',
                fontWeight: 'bold',
                marginBottom: '1rem',
                textAlign: 'left',
@@ -43,7 +43,7 @@ const FormAddCategory = () => {
          </h1>
          <h2
             style={{
-               fontSize: '2.0rem',
+               fontSize: 'clamp(1.4rem, 4vw, 2rem)',
                fontWeight: 'bold',
                marginBottom: '2rem',
                textAlign: 'left',
@@ -92,7 +92,8 @@ const labelStyle = {
 };
 
 const tableStyle = {
-   width: '50%',
+   width: '100%',
+   maxWidth: '600px',
    margin: '0 auto',
    borderCollapse: 'collapse',
    marginBottom: '1.5rem',

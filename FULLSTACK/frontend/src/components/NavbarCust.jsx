@@ -14,9 +14,11 @@ const Navbar = () => {
    };
 
    const headerStyle = {
-      marginBottom: '50px',
+      marginBottom: 'clamp(1rem, 5vw, 50px)',
       gridColumn: 'span 2',
       display: 'flex',
+      flexWrap: 'wrap',
+      gap: '10px',
       justifyContent: 'space-between',
       alignItems: 'center',
       padding: '10px 20px',
@@ -24,13 +26,10 @@ const Navbar = () => {
    };
 
    const logoStyle = {
-      fontSize: '2.5rem',
+      fontSize: 'clamp(1.8rem, 5vw, 2.5rem)',
       fontWeight: '400',
       fontStyle: 'bold',
       color: '#000',
-      position: 'absolute',
-      left: '50%',
-      transform: 'translateX(-50%)',
       fontFamily: '"Jersey 25", serif',
    };
 
@@ -40,11 +39,12 @@ const Navbar = () => {
       flexDirection: 'row',
    };
 
-   const navLinkStyle = {
+   const navLinkStyle = ({ isActive }) => ({
       textDecoration: 'none',
       fontSize: '18px',
       backgroundColor: 'transparent',
-   };
+      color: isActive ? '#416B39' : undefined,
+   });
    const emptyBoxStyle = {
       gridColumn: 'span 2',
       height: '50px',
@@ -59,9 +59,9 @@ const Navbar = () => {
             <nav style={navStyle}>
                <NavLink
                   to="/customer"
+                  end
                   style={navLinkStyle}
                   className="navbar-item"
-                  activeStyle={{ color: '#416B39' }}
                >
                   Home
                </NavLink>
@@ -69,12 +69,11 @@ const Navbar = () => {
                   to="/customer/product"
                   style={navLinkStyle}
                   className="navbar-item"
-                  activeStyle={{ color: '#416B39' }}
                >
                   Products
                </NavLink>
             </nav>
-            <h1 style={logoStyle}>Snaggle</h1>
+            <h1 className="cust-logo" style={logoStyle}>Snaggle</h1>
          </header>
       </div>
    );
