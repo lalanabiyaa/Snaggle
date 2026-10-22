@@ -12,7 +12,7 @@ const FormEditCategory = () => {
       const getCategoriesById = async () => {
          try {
             const response = await axios.get(
-               `https://snaggle-production.up.railway.app/category/${id}`
+               `https://snaggle.onrender.com/category/${id}`
             );
             setName(response.data.name);
          } catch (error) {
@@ -25,7 +25,7 @@ const FormEditCategory = () => {
    const updateCategories = async event => {
       event.preventDefault();
       try {
-         await axios.patch(`https://snaggle-production.up.railway.app/category/${id}`, {
+         await axios.patch(`https://snaggle.onrender.com/category/${id}`, {
             name: name,
          });
          navigate('/category');

@@ -10,7 +10,7 @@ const FormAddCategory = () => {
    const saveCategory = async event => {
       event.preventDefault();
       try {
-         await axios.post('https://snaggle-production.up.railway.app/category', {
+         await axios.post('https://snaggle.onrender.com/category', {
             name: name,
          });
          navigate('/category');

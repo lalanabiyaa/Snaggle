@@ -17,7 +17,7 @@ const FormAddUser = () => {
    const saveUser = async event => {
       event.preventDefault();
       try {
-         await axios.post('https://snaggle-production.up.railway.app/users', {
+         await axios.post('https://snaggle.onrender.com/users', {
             name: name,
             email: email,
             password: password,

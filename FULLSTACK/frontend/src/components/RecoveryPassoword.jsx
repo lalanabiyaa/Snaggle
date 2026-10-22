@@ -19,7 +19,7 @@ const Login = () => {
 
     try {
       await axios.patch(
-        "https://snaggle-production.up.railway.app/forgetPassword",
+        "https://snaggle.onrender.com/forgetPassword",
         {
           email,
           newPassword,

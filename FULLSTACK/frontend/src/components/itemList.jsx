@@ -17,7 +17,7 @@ const ProductList = () => {
   useEffect(() => {
     // Ambil data produk
     axios
-      .get("https://snaggle-production.up.railway.app/product")
+      .get("https://snaggle.onrender.com/product")
       .then((response) => {
         setProducts(response.data);
         setFilteredProducts(response.data);
@@ -26,7 +26,7 @@ const ProductList = () => {
       .catch((error) => console.error("Error fetching products:", error));
 
     // Ambil data kategori
-    axios.get("https://snaggle-production.up.railway.app/category").then((response) => {
+    axios.get("https://snaggle.onrender.com/category").then((response) => {
       console.log("Categories from API:", response.data);
       setCategories(response.data);
     });
@@ -133,7 +133,7 @@ const ProductList = () => {
               onClick={() => handleClick(product.uuid)}
             >
               <img
-                src={`https://snaggle-production.up.railway.app/images/${product.picture}`}
+                src={`https://snaggle.onrender.com/images/${product.picture}`}
                 alt={product.name}
                 style={styles.image}
               />

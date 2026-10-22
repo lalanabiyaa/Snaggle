@@ -13,13 +13,13 @@ const CategoryList = () => {
    }, []);
 
    const getCategories = async () => {
-      const response = await axios.get('https://snaggle-production.up.railway.app/category');
+      const response = await axios.get('https://snaggle.onrender.com/category');
       setCategories(response.data);
       setallCategories(response.data);
    };
    
    // const deleteCategories = async userId => {
-   //    await axios.delete(`https://snaggle-production.up.railway.app/category/${userId}`);
+   //    await axios.delete(`https://snaggle.onrender.com/category/${userId}`);
    //    getCategories();
    // };
 

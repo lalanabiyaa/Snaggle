@@ -20,7 +20,7 @@ const FormEditProduct = () => {
       const getProductById = async () => {
          try {
             const response = await axios.get(
-               `https://snaggle-production.up.railway.app/product/${id}`
+               `https://snaggle.onrender.com/product/${id}`
             );
             setName(response.data.name);
             setPrice(response.data.price);
@@ -59,7 +59,7 @@ const FormEditProduct = () => {
       }
 
       try {
-         await axios.patch(`https://snaggle-production.up.railway.app/product/${id}`, formData, {
+         await axios.patch(`https://snaggle.onrender.com/product/${id}`, formData, {
             headers: { 'Content-Type': 'multipart/form-data' },
          });
          navigate('/products');
@@ -71,7 +71,7 @@ const FormEditProduct = () => {
    useEffect(() => {
       const getCategories = async () => {
          try {
-            const response = await axios.get('https://snaggle-production.up.railway.app/category');
+            const response = await axios.get('https://snaggle.onrender.com/category');
             setCategories(response.data);
          } catch (error) {
             console.error('Error fetching categories:', error);

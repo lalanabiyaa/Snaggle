@@ -42,7 +42,7 @@ const Navbar = () => {
     }
 
     try {
-      const response = await axios.patch('https://snaggle-production.up.railway.app/recoveryPassword', {
+      const response = await axios.patch('https://snaggle.onrender.com/recoveryPassword', {
         email: user.email,  
         password,  
         newPassword, 

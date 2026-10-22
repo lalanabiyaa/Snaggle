@@ -11,7 +11,7 @@ const DetailProduct = () => {
       const getProductById = async () => {
          try {
             const response = await axios.get(
-               `https://snaggle-production.up.railway.app/product/${id}`
+               `https://snaggle.onrender.com/product/${id}`
             );
             setProduct(response.data);
          } catch (error) {

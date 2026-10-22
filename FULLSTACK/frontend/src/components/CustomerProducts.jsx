@@ -25,7 +25,7 @@ const CustomerProducts = () => {
 
   const getProducts = async () => {
     const response = await axios.get(
-      "https://snaggle-production.up.railway.app/product",
+      "https://snaggle.onrender.com/product",
     );
     setProducts(response.data);
   };
@@ -41,7 +41,7 @@ const CustomerProducts = () => {
 
   const getCategories = async () => {
     const response = await axios.get(
-      "https://snaggle-production.up.railway.app/category",
+      "https://snaggle.onrender.com/category",
     );
     setCategories(response.data);
   };
@@ -157,7 +157,7 @@ const CustomerProducts = () => {
                 style={productCardStyle}
               >
                 <img
-                  src={`https://snaggle-production.up.railway.app/images/${product.picture}`}
+                  src={`https://snaggle.onrender.com/images/${product.picture}`}
                   alt={product.name}
                   style={productImageStyle}
                 />

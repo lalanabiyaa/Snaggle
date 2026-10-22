@@ -13,7 +13,7 @@ export const LoginUser = createAsyncThunk(
   "user/LoginUser",
   async (user, thunkAPI) => {
     try {
-      const response = await axios.post("https://snaggle-production.up.railway.app/login", {
+      const response = await axios.post("https://snaggle.onrender.com/login", {
         email: user.email,
         password: user.password,
       });
@@ -29,7 +29,7 @@ export const LoginUser = createAsyncThunk(
 
 export const getMe = createAsyncThunk("user/getMe", async (_, thunkAPI) => {
   try {
-    const response = await axios.get("https://snaggle-production.up.railway.app/me");
+    const response = await axios.get("https://snaggle.onrender.com/me");
     return response.data;
   } catch (error) {
     if (error.response) {
@@ -40,7 +40,7 @@ export const getMe = createAsyncThunk("user/getMe", async (_, thunkAPI) => {
 });
 
 export const logOut = createAsyncThunk("user/logOut", async (_, thunkAPI) => {
-  await axios.delete("https://snaggle-production.up.railway.app/logout");
+  await axios.delete("https://snaggle.onrender.com/logout");
 });
 
 export const authSlice = createSlice({

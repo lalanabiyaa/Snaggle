@@ -16,7 +16,7 @@ const Userlist = () => {
   const getUsers = async () => {
     try {
       const response = await axios.get(
-        "https://snaggle-production.up.railway.app/users",
+        "https://snaggle.onrender.com/users",
       );
       setAllUsers(response.data);
       setUsers(response.data);
@@ -27,7 +27,7 @@ const Userlist = () => {
 
   // const deleteUsers = async userId => {
   //    try {
-  //       await axios.delete(`https://snaggle-production.up.railway.app/users/${userId}`);
+  //       await axios.delete(`https://snaggle.onrender.com/users/${userId}`);
   //       setUsers(users.filter(user => user.uuid !== userId));
   //       setAllUsers(allUsers.filter(user => user.uuid !== userId));
   //    } catch (error) {
